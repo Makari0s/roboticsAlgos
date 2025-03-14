@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}Algorithmus-Projekt{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <!-- D3-Bibliothek über CDN -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('index') }}">Hauptmenü</a></li>
+        <li><a href="{{ url_for('visibility.index') }}">Visibility Graph</a></li>
+        <li><a href="{{ url_for('line_sweep.index') }}">Line Sweep Algo</a></li>
+        <li><a href="{{ url_for('quadtree.index') }}">Quad Tree Algo</a></li>
+      </ul>
+    </nav>
+    <div class="content">
+      {% block content %}{% endblock %}
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block scripts %}{% endblock %}
+  </body>
+</html>

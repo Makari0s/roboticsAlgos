@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Quadtree Decomposition{% endblock %}
+{% block content %}
+  <h1>Quadtree Approximate Cell Decomposition</h1>
+  <!-- Ersetze den controls-Block mit diesem Code -->
+  <div id="controls">
+      <button id="reload">Reload</button>
+      <label>Max Depth: <input id="max_depth" type="number" value="5"></label>
+      <label>Min Size: <input id="min_size" type="number" value="20"></label>
+      <label>Obstacles: <input id="num_obstacles" type="number" value="3"></label>
+      <label>Max Vertices: <input id="max_vertices" type="number" value="6"></label>
+      <label>Obstacle Size: <input id="obstacle_size" type="number" value="100"></label>
+      <label>Start X: <input id="start_x" type="number" value="50"></label>
+      <label>Start Y: <input id="start_y" type="number" value="300"></label>
+      <label>Goal X: <input id="goal_x" type="number" value="550"></label>
+      <label>Goal Y: <input id="goal_y" type="number" value="300"></label>
+      <label>Seed: <input id="seed" type="number"></label>
+  </div>
+  
+  <div class="grid">
+    <div>
+      <h2>Map with Obstacles</h2>
+      <svg id="map_view" width="600" height="600"></svg>
+    </div>
+    <div>
+      <h2>Quadtree Decomposition</h2>
+      <svg id="quadtree_view" width="600" height="600"></svg>
+    </div>
+    <div>
+      <h2>Navigation Graph</h2>
+      <svg id="graph_view" width="600" height="600"></svg>
+    </div>
+  </div>
+  <div id="legend"></div>
+{% endblock %}
+{% block scripts %}
+  <script src="{{ url_for('static', filename='js/quadtree.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Visibility Graph Demo – Multiple Views{% endblock %}
+{% block content %}
+  <h1>Visibility Graph Demo – Multiple Views</h1>
+  <div id="controls">
+    <button id="reload">Reload Obstacles</button>
+    <label>Max Vertices: <input id="max_vertices" type="number" value="6" min="3" max="10"></label>
+    <label>Obstacle Size: <input id="obstacle_size" type="number" value="50" min="20" max="200"></label>
+    <label>Start X: <input id="start_x" type="number" value="5"></label>
+    <label>Start Y: <input id="start_y" type="number" value="5"></label>
+    <label>Goal X: <input id="goal_x" type="number" value="95"></label>
+    <label>Goal Y: <input id="goal_y" type="number" value="95"></label>
+    <label>Seed: <input id="seed" type="number"></label>
+  </div>
+  <div class="grid">
+    <div>
+      <h2>View 1: Map with Obstacles</h2>
+      <svg id="obstacles_view" width="600" height="600"></svg>
+    </div>
+    <div>
+      <h2>View 2: Visibility Graph</h2>
+      <svg id="graph" width="600" height="600"></svg>
+    </div>
+  </div>
+  <div id="legend"></div>
+{% endblock %}
+{% block scripts %}
+  <script src="{{ url_for('static', filename='js/visibility.js') }}"></script>
+{% endblock %}
